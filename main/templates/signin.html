@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sign in</title>
+  </head>
+  <body>
+  <div class="header">
+		<div class="left">
+		</div>
+		<div class="center">
+			<a>&nbsp</a>
+				<div class="notifications">
+				{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+					<p>{{ message }}</p>
+					{% endfor %}
+				{% else %}
+				<p>-</p>
+				{% endif %}
+				{% endwith %}
+			</div>
+		</div>		
+		<div class="right">			
+		</div>
+	</div>
+
+<div class="container">
+    <form class="form-signin" method="POST">
+        <p>Login:&nbsp&nbsp&nbsp     
+        {{ signinform.username(placeholder="Username",id="inputUsername", class="form-control", autofocus="") }}</p>
+        <p>Password:
+        {{ signinform.password(placeholder="Password",id="inputPassword", class="form-control", required="") }}</p>
+        <p>
+        {{ signinform.csrf_token }}
+        {{ signinform.submit(class="btn btn-lg btn-primary btn-block")}}</p>
+        <p>
+              <div class="noacc">
+        Dont have an account? <a href="signup">Register</a>
+      </div></p>
+      </form>
+
+</div>
+</body>
+</html>
